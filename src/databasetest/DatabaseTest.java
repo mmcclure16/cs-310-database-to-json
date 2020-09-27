@@ -14,10 +14,10 @@ public class DatabaseTest {
         ResultSet resultset = null;
         ResultSetMetaData metadata = null;
 
-        String query, key, value;
+        String query;
 
         boolean hasresults;
-        int resultCount, columnCount, updateCount = 0;
+        int resultCount, columnCount = 0;
 
         JSONArray output = new JSONArray();
 
@@ -81,8 +81,8 @@ public class DatabaseTest {
 
                             JSONObject data = new JSONObject();
                                 for(int i = 2; i < columnCount; i++){ 
-                                    data.put(metadata.getColumnLabel(8), resultset.getString(8)); //sets last column, zip code, to front of JSONObject
-                                    data.put(metadata.getColumnLabel(i), resultset.getString(i)); //loops through for the rest of the needed info
+                                    data.put(metadata.getColumnLabel(8), resultset.getString(8));
+                                    data.put(metadata.getColumnLabel(i), resultset.getString(i));
                                 }
                             output.add(data.clone());
                         }
